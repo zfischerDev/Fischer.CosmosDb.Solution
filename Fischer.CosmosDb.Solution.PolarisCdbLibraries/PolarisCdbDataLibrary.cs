@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
@@ -13,8 +14,8 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
 {
     public class PolarisCdbDataLibrary
     {
-        private static readonly string polarisCosmosDbEndpointUri = @"https://localhost:8081";
-        private static readonly string polarisCosmosDbPrimaryKey = @"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+        private static readonly string polarisCosmosDbEndpointUri = @"<ADD URI HERE>";
+        private static readonly string polarisCosmosDbPrimaryKey = @"<ADD PRIMAY KEY HERE>";
         private CosmosClient cosmosClient;
         private Database cosmosDatabase;
         private Container cosmosContainer;
@@ -24,6 +25,7 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
 
         #region CosmosDb communications
         #endregion
+
         #region Json
         public string SerializeFormattedJsonToString(PolarisAccountHolder accountHolder)
         {
@@ -37,6 +39,41 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
             return jasonString;
         }
         #endregion
+
+        #region AccountHolder
+
+        public async Task<List<PolarisAccountHolder>> GetAllAccountHolders()
+        {
+            List<PolarisAccountHolder> polarisAccountHolderList = new List<PolarisAccountHolder>();
+            try
+            {
+                cosmosClient = new CosmosClient(polarisCosmosDbEndpointUri, polarisCosmosDbPrimaryKey);
+                cosmosContainer = cosmosClient.GetContainer(polarisDatabaseId, polarisAccountHolderContainerId);
+
+                string sqlString = "SELECT acctHldrTable.AccountGuid,acctHldrTable.AccountHolder, " +
+                                   "acctHldrTable.AccountType FROM acctHldrTable";
+                QueryDefinition selectAccountDefinition = new QueryDefinition(sqlString);
+                FeedIterator<PolarisAccountHolder> feedResultIterator =
+                    cosmosContainer.GetItemQueryIterator<PolarisAccountHolder>(selectAccountDefinition);
+                //Iterate through the results
+                while (feedResultIterator.HasMoreResults)
+                {
+                    FeedResponse<PolarisAccountHolder> feedResponse = await feedResultIterator.ReadNextAsync();
+
+                    foreach (var polarisAccountHolder in feedResponse)
+                    {
+                        polarisAccountHolderList.Add(polarisAccountHolder);
+                    }
+                }
+ 
+                return polarisAccountHolderList;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
         public async Task AddAccountHolderToCosmosDb(PolarisAccountHolder accountHolder)
         {
             try
@@ -54,5 +91,61 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
                 throw exception;
             }
         }
+
+        #endregion
+
+        #region Transaction
+
+        public async Task<List<PolarisTransaction>> GetAllTransactions()
+        {
+            List<PolarisTransaction> polarisTransactionList = new List<PolarisTransaction>();
+            try
+            {
+                cosmosClient = new CosmosClient(polarisCosmosDbEndpointUri, polarisCosmosDbPrimaryKey);
+                cosmosContainer = cosmosClient.GetContainer(polarisDatabaseId, polarisTransactionContainerId);
+
+                string sqlString = "SELECT * FROM acctTransactionTable";
+                QueryDefinition selectTransactionDefinition = new QueryDefinition(sqlString);
+                FeedIterator<PolarisTransaction> feedResultIterator =
+                    cosmosContainer.GetItemQueryIterator<PolarisTransaction>(selectTransactionDefinition);
+                //Iterate through the results
+                while (feedResultIterator.HasMoreResults)
+                {
+                    FeedResponse<PolarisTransaction> feedResponse = await feedResultIterator.ReadNextAsync();
+
+                    foreach (var polarisTransaction in feedResponse)
+                    {
+                        polarisTransactionList.Add(polarisTransaction);
+                    }
+                }
+
+                return polarisTransactionList;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public async Task AddTransactionToCosmosDb(PolarisTransaction accountTransaction)
+        {
+            try
+            {
+                cosmosClient = new CosmosClient(polarisCosmosDbEndpointUri, polarisCosmosDbPrimaryKey);
+                //string jsonString = SerializeFormattedJsonToString(accountHolder);
+                cosmosContainer = cosmosClient.GetContainer(polarisDatabaseId, polarisTransactionContainerId);
+                ItemResponse<PolarisTransaction> accountTransactionResponse =
+                    await cosmosContainer.CreateItemAsync<PolarisTransaction>(accountTransaction,
+                        new PartitionKey(accountTransaction.TransactionGuid.ToString()));
+            }
+            catch (Exception exception)
+            {
+                //Console.WriteLine(e);
+                throw exception;
+            }
+        }
+
+        #endregion
     }
 }

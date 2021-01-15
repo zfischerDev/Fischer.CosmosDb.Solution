@@ -29,8 +29,23 @@ namespace PolarisCdbTestHarness
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTransMemo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEndingBalance = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtTransactionAmount = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTransactionDateTime = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboTransactionType = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBeginningBalance = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTransAccountGuid = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTransactionGuid = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAccountGuid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,37 +56,181 @@ namespace PolarisCdbTestHarness
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btbAddTransaction = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.polarisAccountDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.polarisTransactionDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.polarisAccountDataGridView)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.polarisTransactionDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(776, 148);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtTransMemo);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtEndingBalance);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtTransactionAmount);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtTransactionDateTime);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cboTransactionType);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtBeginningBalance);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtTransAccountGuid);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtTransactionGuid);
             this.groupBox1.Location = new System.Drawing.Point(12, 148);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 125);
+            this.groupBox1.Size = new System.Drawing.Size(396, 422);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Transactions";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 282);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 20);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Transaction Memo";
+            // 
+            // txtTransMemo
+            // 
+            this.txtTransMemo.Location = new System.Drawing.Point(12, 307);
+            this.txtTransMemo.Multiline = true;
+            this.txtTransMemo.Name = "txtTransMemo";
+            this.txtTransMemo.Size = new System.Drawing.Size(372, 100);
+            this.txtTransMemo.TabIndex = 40;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 247);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(111, 20);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Ending Balance";
+            // 
+            // txtEndingBalance
+            // 
+            this.txtEndingBalance.Location = new System.Drawing.Point(161, 244);
+            this.txtEndingBalance.Name = "txtEndingBalance";
+            this.txtEndingBalance.Size = new System.Drawing.Size(223, 27);
+            this.txtEndingBalance.TabIndex = 38;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 210);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 20);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Transaction Amount";
+            // 
+            // txtTransactionAmount
+            // 
+            this.txtTransactionAmount.Location = new System.Drawing.Point(160, 207);
+            this.txtTransactionAmount.Name = "txtTransactionAmount";
+            this.txtTransactionAmount.Size = new System.Drawing.Size(223, 27);
+            this.txtTransactionAmount.TabIndex = 36;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 174);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 20);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Transaction Date";
+            // 
+            // txtTransactionDateTime
+            // 
+            this.txtTransactionDateTime.Location = new System.Drawing.Point(160, 171);
+            this.txtTransactionDateTime.Name = "txtTransactionDateTime";
+            this.txtTransactionDateTime.Size = new System.Drawing.Size(223, 27);
+            this.txtTransactionDateTime.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 20);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Transaction Type";
+            // 
+            // cboTransactionType
+            // 
+            this.cboTransactionType.FormattingEnabled = true;
+            this.cboTransactionType.Items.AddRange(new object[] {
+            "DEPOSIT",
+            "WITHDRAWL",
+            "FEE",
+            "PENALTY"});
+            this.cboTransactionType.Location = new System.Drawing.Point(160, 97);
+            this.cboTransactionType.Name = "cboTransactionType";
+            this.cboTransactionType.Size = new System.Drawing.Size(223, 28);
+            this.cboTransactionType.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 138);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 20);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Beginning Balance";
+            // 
+            // txtBeginningBalance
+            // 
+            this.txtBeginningBalance.Location = new System.Drawing.Point(160, 135);
+            this.txtBeginningBalance.Name = "txtBeginningBalance";
+            this.txtBeginningBalance.Size = new System.Drawing.Size(223, 27);
+            this.txtBeginningBalance.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 20);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Account Guid";
+            // 
+            // txtTransAccountGuid
+            // 
+            this.txtTransAccountGuid.Location = new System.Drawing.Point(160, 58);
+            this.txtTransAccountGuid.Name = "txtTransAccountGuid";
+            this.txtTransAccountGuid.Size = new System.Drawing.Size(223, 27);
+            this.txtTransAccountGuid.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 20);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Transaction Guid";
+            // 
+            // txtTransactionGuid
+            // 
+            this.txtTransactionGuid.Location = new System.Drawing.Point(160, 20);
+            this.txtTransactionGuid.Name = "txtTransactionGuid";
+            this.txtTransactionGuid.Size = new System.Drawing.Size(223, 27);
+            this.txtTransactionGuid.TabIndex = 27;
             // 
             // groupBox2
             // 
@@ -83,14 +242,14 @@ namespace PolarisCdbTestHarness
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(10, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(377, 134);
+            this.groupBox2.Size = new System.Drawing.Size(398, 134);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Account";
             // 
             // txtAccountGuid
             // 
-            this.txtAccountGuid.Location = new System.Drawing.Point(138, 20);
+            this.txtAccountGuid.Location = new System.Drawing.Point(160, 20);
             this.txtAccountGuid.Name = "txtAccountGuid";
             this.txtAccountGuid.Size = new System.Drawing.Size(223, 27);
             this.txtAccountGuid.TabIndex = 14;
@@ -112,7 +271,7 @@ namespace PolarisCdbTestHarness
             "SAVINGS",
             "CORPORATE",
             "MISCELLANEOUS"});
-            this.cboAccountType.Location = new System.Drawing.Point(138, 94);
+            this.cboAccountType.Location = new System.Drawing.Point(160, 94);
             this.cboAccountType.Name = "cboAccountType";
             this.cboAccountType.Size = new System.Drawing.Size(223, 28);
             this.cboAccountType.TabIndex = 12;
@@ -128,7 +287,7 @@ namespace PolarisCdbTestHarness
             // 
             // txtAccountHolder
             // 
-            this.txtAccountHolder.Location = new System.Drawing.Point(138, 58);
+            this.txtAccountHolder.Location = new System.Drawing.Point(160, 58);
             this.txtAccountHolder.Name = "txtAccountHolder";
             this.txtAccountHolder.Size = new System.Drawing.Size(223, 27);
             this.txtAccountHolder.TabIndex = 10;
@@ -146,7 +305,7 @@ namespace PolarisCdbTestHarness
             // 
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.btnAddAccount);
-            this.groupBox3.Location = new System.Drawing.Point(393, 8);
+            this.groupBox3.Location = new System.Drawing.Point(420, 8);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 134);
             this.groupBox3.TabIndex = 4;
@@ -171,125 +330,95 @@ namespace PolarisCdbTestHarness
             this.btnAddAccount.UseVisualStyleBackColor = true;
             this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
-            // textBox1
+            // groupBox4
             // 
-            this.textBox1.Location = new System.Drawing.Point(439, 313);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 27);
-            this.textBox1.TabIndex = 15;
+            this.groupBox4.Controls.Add(this.btbAddTransaction);
+            this.groupBox4.Location = new System.Drawing.Point(420, 148);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(172, 422);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
             // 
-            // label4
+            // btbAddTransaction
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(313, 316);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 20);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Transaction Guid";
+            this.btbAddTransaction.Location = new System.Drawing.Point(13, 23);
+            this.btbAddTransaction.Name = "btbAddTransaction";
+            this.btbAddTransaction.Size = new System.Drawing.Size(142, 43);
+            this.btbAddTransaction.TabIndex = 8;
+            this.btbAddTransaction.Text = "Add Transaction";
+            this.btbAddTransaction.UseVisualStyleBackColor = true;
+            this.btbAddTransaction.Click += new System.EventHandler(this.btbAddTransaction_Click);
             // 
-            // label5
+            // groupBox5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(314, 354);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 20);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Account Guid";
+            this.groupBox5.Controls.Add(this.polarisAccountDataGridView);
+            this.groupBox5.Location = new System.Drawing.Point(599, 8);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(487, 265);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "All Account Holders";
             // 
-            // textBox2
+            // polarisAccountDataGridView
             // 
-            this.textBox2.Location = new System.Drawing.Point(439, 351);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(223, 27);
-            this.textBox2.TabIndex = 17;
+            this.polarisAccountDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.polarisAccountDataGridView.Location = new System.Drawing.Point(7, 27);
+            this.polarisAccountDataGridView.Name = "polarisAccountDataGridView";
+            this.polarisAccountDataGridView.RowHeadersWidth = 51;
+            this.polarisAccountDataGridView.RowTemplate.Height = 29;
+            this.polarisAccountDataGridView.Size = new System.Drawing.Size(474, 220);
+            this.polarisAccountDataGridView.TabIndex = 0;
             // 
-            // label6
+            // groupBox6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(366, 469);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Beginning Balance";
+            this.groupBox6.Controls.Add(this.polarisTransactionDataGridView);
+            this.groupBox6.Location = new System.Drawing.Point(599, 272);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(487, 294);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "All Transactions";
             // 
-            // textBox3
+            // polarisTransactionDataGridView
             // 
-            this.textBox3.Location = new System.Drawing.Point(502, 466);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(223, 27);
-            this.textBox3.TabIndex = 19;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "CHECKING",
-            "SAVINGS",
-            "CORPORATE",
-            "MISCELLANEOUS"});
-            this.comboBox1.Location = new System.Drawing.Point(439, 390);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 28);
-            this.comboBox1.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(314, 393);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 20);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Transaction Type";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(364, 502);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 20);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Beginning Balance";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(502, 499);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(223, 27);
-            this.textBox4.TabIndex = 22;
+            this.polarisTransactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.polarisTransactionDataGridView.Location = new System.Drawing.Point(7, 27);
+            this.polarisTransactionDataGridView.Name = "polarisTransactionDataGridView";
+            this.polarisTransactionDataGridView.RowHeadersWidth = 51;
+            this.polarisTransactionDataGridView.RowTemplate.Height = 29;
+            this.polarisTransactionDataGridView.Size = new System.Drawing.Size(474, 256);
+            this.polarisTransactionDataGridView.TabIndex = 0;
             // 
             // btnFindAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 653);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1098, 578);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
             this.Name = "btnFindAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.btnFindAccount_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.polarisAccountDataGridView)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.polarisTransactionDataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtAccountGuid;
@@ -301,16 +430,28 @@ namespace PolarisCdbTestHarness
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAddAccount;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEndingBalance;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtTransactionAmount;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTransactionDateTime;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboTransactionType;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtBeginningBalance;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTransAccountGuid;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTransactionGuid;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btbAddTransaction;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtTransMemo;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView polarisAccountDataGridView;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.DataGridView polarisTransactionDataGridView;
     }
 }
 
