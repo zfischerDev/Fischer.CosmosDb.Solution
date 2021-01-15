@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fischer.CosmosDb.Solution.PolarisCdbLibraries", "Fischer.CosmosDb.Solution.PolarisCdbLibraries\Fischer.CosmosDb.Solution.PolarisCdbLibraries.csproj", "{FC77B0C8-05B6-43B2-9869-36CD2661C45D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarisCdbTestHarness", "PolarisCdbTestHarness\PolarisCdbTestHarness.csproj", "{9A1B3927-83CE-4B1A-B551-522D5C419EDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC77B0C8-05B6-43B2-9869-36CD2661C45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC77B0C8-05B6-43B2-9869-36CD2661C45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC77B0C8-05B6-43B2-9869-36CD2661C45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC77B0C8-05B6-43B2-9869-36CD2661C45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1B3927-83CE-4B1A-B551-522D5C419EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1B3927-83CE-4B1A-B551-522D5C419EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1B3927-83CE-4B1A-B551-522D5C419EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1B3927-83CE-4B1A-B551-522D5C419EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {480485DA-C688-4D1E-927E-5A531979EF6C}
+	EndGlobalSection
+EndGlobal
