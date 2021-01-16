@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,11 +33,10 @@ namespace PolarisCdbTestHarness
             accountHolder.AccountHolder = txtAccountHolder.Text.ToUpper();
             accountHolder.AccountType = cboAccountType.SelectedItem.ToString().ToUpper();
 
-            library.AddAccountHolderToCosmosDb(accountHolder);
+            library.AddAccountHolderToCosmosDb(accountHolder, txtUriString.Text,txtKeyString.Text);
 
             ClearAccountHolderFields();
-
-            MessageBox.Show("Done");
+            GetAccountHldrs(txtUriString.Text, txtKeyString.Text);
         }
 
         private void btbAddTransaction_Click(object sender, EventArgs e)
@@ -55,37 +55,58 @@ namespace PolarisCdbTestHarness
             accountTransaction.Memo = txtTransMemo.Text.ToUpper();
 
             //Add the transaction
-            library.AddTransactionToCosmosDb(accountTransaction);
+            library.AddTransactionToCosmosDb(accountTransaction,txtUriString.Text,txtKeyString.Text);
 
             ClearAccountTransactionFields();
-
-            MessageBox.Show("Done");
-
+            GetAccountTransactions(txtUriString.Text, txtKeyString.Text);
         }
 
 
         private void btnFindAccount_Load(object sender, EventArgs e)
         {
-            GetAccountHldrs();
-            GetAccountTransactions();
         }
 
         #region Custom Methods
 
-        private async Task GetAccountHldrs()
+        private void GetConfigSections()
+        {
+            string configFilePath = string.Empty;
+            string configText = String.Empty;
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                configFilePath = fileDialog.FileName;
+                if (!string.IsNullOrEmpty(configFilePath))
+                {
+                    configText = File.ReadAllText(configFilePath);
+                    //Get the text fields
+                    int pipeOne = configText.IndexOf("|");
+                    int startx1 = configText.IndexOf("CosmosURI|");
+                    txtUriString.Text = configText.Substring(0,pipeOne);
+                    txtKeyString.Text = configText.Substring(pipeOne + 1, configText.Length - (pipeOne + 1));
+
+                    //Get the records
+                    GetAccountHldrs(txtUriString.Text, txtKeyString.Text);
+                    GetAccountTransactions(txtUriString.Text, txtKeyString.Text);
+                }
+            }
+        }
+
+        private async Task GetAccountHldrs(string polarisCosmosDbEndpointUri, string polarisCosmosDbPrimaryKey)
         {
             PolarisCdbDataLibrary library = new PolarisCdbDataLibrary();
-            List<PolarisAccountHolder> theList = await library.GetAllAccountHolders();
+            List<PolarisAccountHolder> theList = await library.GetAllAccountHolders(polarisCosmosDbEndpointUri, polarisCosmosDbPrimaryKey);
             polarisAccountDataGridView.DataSource = theList;
             polarisAccountDataGridView.Columns["id"].Visible = false;
             polarisAccountDataGridView.Columns["AccountGuid"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             polarisAccountDataGridView.RowHeadersVisible = false;
         }
 
-        private async Task GetAccountTransactions()
+        private async Task GetAccountTransactions(string polarisCosmosDbEndpointUri, string polarisCosmosDbPrimaryKey)
         {
             PolarisCdbDataLibrary library = new PolarisCdbDataLibrary();
-            List<PolarisTransaction> theList = await library.GetAllTransactions();
+            List<PolarisTransaction> theList = await library.GetAllTransactions(polarisCosmosDbEndpointUri, polarisCosmosDbPrimaryKey);
             polarisTransactionDataGridView.DataSource = theList;
             polarisTransactionDataGridView.Columns["id"].Visible = false;
             polarisTransactionDataGridView.Columns["TransactionGuid"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -112,7 +133,12 @@ namespace PolarisCdbTestHarness
             cboTransactionType.SelectedValue = -1;
         }
 
+
         #endregion
 
+        private void btnAuthConfig_Click(object sender, EventArgs e)
+        {
+            GetConfigSections();
+        }
     }
 }

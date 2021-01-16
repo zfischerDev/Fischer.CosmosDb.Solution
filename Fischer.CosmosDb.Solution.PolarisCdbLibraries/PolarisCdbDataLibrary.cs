@@ -14,8 +14,8 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
 {
     public class PolarisCdbDataLibrary
     {
-        private static readonly string polarisCosmosDbEndpointUri = @"<ADD URI HERE>";
-        private static readonly string polarisCosmosDbPrimaryKey = @"<ADD PRIMAY KEY HERE>";
+        //private static readonly string polarisCosmosDbEndpointUri = @"<ADD URI HERE>";
+        //private static readonly string polarisCosmosDbPrimaryKey = @"<ADD PRIMAY KEY HERE>";
         private CosmosClient cosmosClient;
         private Database cosmosDatabase;
         private Container cosmosContainer;
@@ -42,7 +42,7 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
 
         #region AccountHolder
 
-        public async Task<List<PolarisAccountHolder>> GetAllAccountHolders()
+        public async Task<List<PolarisAccountHolder>> GetAllAccountHolders(string polarisCosmosDbEndpointUri, string polarisCosmosDbPrimaryKey)
         {
             List<PolarisAccountHolder> polarisAccountHolderList = new List<PolarisAccountHolder>();
             try
@@ -74,7 +74,7 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
                 throw;
             }
         }
-        public async Task AddAccountHolderToCosmosDb(PolarisAccountHolder accountHolder)
+        public async Task AddAccountHolderToCosmosDb(PolarisAccountHolder accountHolder, string polarisCosmosDbEndpointUri, string polarisCosmosDbPrimaryKey)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
 
         #region Transaction
 
-        public async Task<List<PolarisTransaction>> GetAllTransactions()
+        public async Task<List<PolarisTransaction>> GetAllTransactions(string polarisCosmosDbEndpointUri, string polarisCosmosDbPrimaryKey)
         {
             List<PolarisTransaction> polarisTransactionList = new List<PolarisTransaction>();
             try
@@ -128,7 +128,7 @@ namespace Fischer.CosmosDb.Solution.PolarisCdbLibraries
             }
         }
 
-        public async Task AddTransactionToCosmosDb(PolarisTransaction accountTransaction)
+        public async Task AddTransactionToCosmosDb(PolarisTransaction accountTransaction, string polarisCosmosDbEndpointUri, string polarisCosmosDbPrimaryKey)
         {
             try
             {

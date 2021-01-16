@@ -62,6 +62,12 @@ namespace PolarisCdbTestHarness
             this.polarisAccountDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.polarisTransactionDataGridView = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.txtKeyString = new System.Windows.Forms.TextBox();
+            this.txtUriString = new System.Windows.Forms.TextBox();
+            this.btnAuthConfig = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -70,6 +76,7 @@ namespace PolarisCdbTestHarness
             ((System.ComponentModel.ISupportInitialize)(this.polarisAccountDataGridView)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.polarisTransactionDataGridView)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,7 +97,7 @@ namespace PolarisCdbTestHarness
             this.groupBox1.Controls.Add(this.txtTransAccountGuid);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTransactionGuid);
-            this.groupBox1.Location = new System.Drawing.Point(12, 148);
+            this.groupBox1.Location = new System.Drawing.Point(12, 228);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 422);
             this.groupBox1.TabIndex = 3;
@@ -240,7 +247,7 @@ namespace PolarisCdbTestHarness
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtAccountHolder);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(10, 8);
+            this.groupBox2.Location = new System.Drawing.Point(10, 88);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(398, 134);
             this.groupBox2.TabIndex = 4;
@@ -305,7 +312,7 @@ namespace PolarisCdbTestHarness
             // 
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.btnAddAccount);
-            this.groupBox3.Location = new System.Drawing.Point(420, 8);
+            this.groupBox3.Location = new System.Drawing.Point(420, 88);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 134);
             this.groupBox3.TabIndex = 4;
@@ -333,7 +340,7 @@ namespace PolarisCdbTestHarness
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btbAddTransaction);
-            this.groupBox4.Location = new System.Drawing.Point(420, 148);
+            this.groupBox4.Location = new System.Drawing.Point(420, 228);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(172, 422);
             this.groupBox4.TabIndex = 5;
@@ -352,7 +359,7 @@ namespace PolarisCdbTestHarness
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.polarisAccountDataGridView);
-            this.groupBox5.Location = new System.Drawing.Point(599, 8);
+            this.groupBox5.Location = new System.Drawing.Point(599, 88);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(487, 265);
             this.groupBox5.TabIndex = 6;
@@ -372,9 +379,9 @@ namespace PolarisCdbTestHarness
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.polarisTransactionDataGridView);
-            this.groupBox6.Location = new System.Drawing.Point(599, 272);
+            this.groupBox6.Location = new System.Drawing.Point(599, 352);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(487, 294);
+            this.groupBox6.Size = new System.Drawing.Size(487, 298);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "All Transactions";
@@ -389,11 +396,69 @@ namespace PolarisCdbTestHarness
             this.polarisTransactionDataGridView.Size = new System.Drawing.Size(474, 256);
             this.polarisTransactionDataGridView.TabIndex = 0;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(32, 20);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "URI";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(19, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 20);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Key";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.txtKeyString);
+            this.groupBox7.Controls.Add(this.txtUriString);
+            this.groupBox7.Controls.Add(this.btnAuthConfig);
+            this.groupBox7.Controls.Add(this.label12);
+            this.groupBox7.Controls.Add(this.label13);
+            this.groupBox7.Location = new System.Drawing.Point(10, -3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(1076, 85);
+            this.groupBox7.TabIndex = 13;
+            this.groupBox7.TabStop = false;
+            // 
+            // txtKeyString
+            // 
+            this.txtKeyString.Enabled = false;
+            this.txtKeyString.Location = new System.Drawing.Point(66, 46);
+            this.txtKeyString.Name = "txtKeyString";
+            this.txtKeyString.Size = new System.Drawing.Size(865, 27);
+            this.txtKeyString.TabIndex = 15;
+            // 
+            // txtUriString
+            // 
+            this.txtUriString.Enabled = false;
+            this.txtUriString.Location = new System.Drawing.Point(66, 13);
+            this.txtUriString.Name = "txtUriString";
+            this.txtUriString.Size = new System.Drawing.Size(865, 27);
+            this.txtUriString.TabIndex = 14;
+            // 
+            // btnAuthConfig
+            // 
+            this.btnAuthConfig.Location = new System.Drawing.Point(937, 12);
+            this.btnAuthConfig.Name = "btnAuthConfig";
+            this.btnAuthConfig.Size = new System.Drawing.Size(133, 61);
+            this.btnAuthConfig.TabIndex = 13;
+            this.btnAuthConfig.Text = "Select Auth Config File";
+            this.btnAuthConfig.UseVisualStyleBackColor = true;
+            this.btnAuthConfig.Click += new System.EventHandler(this.btnAuthConfig_Click);
+            // 
             // btnFindAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 578);
+            this.ClientSize = new System.Drawing.Size(1099, 667);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -414,6 +479,8 @@ namespace PolarisCdbTestHarness
             ((System.ComponentModel.ISupportInitialize)(this.polarisAccountDataGridView)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.polarisTransactionDataGridView)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -452,6 +519,12 @@ namespace PolarisCdbTestHarness
         private System.Windows.Forms.DataGridView polarisAccountDataGridView;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView polarisTransactionDataGridView;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox txtKeyString;
+        private System.Windows.Forms.TextBox txtUriString;
+        private System.Windows.Forms.Button btnAuthConfig;
     }
 }
 
